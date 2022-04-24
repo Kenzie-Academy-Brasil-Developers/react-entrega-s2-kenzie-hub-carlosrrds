@@ -11,6 +11,16 @@ const GlobalStyles = createGlobalStyle`::after
         border:0;  
     }
 
+    body{
+        background-color: #121214;
+        display: flex;
+        justify-content: center;
+    }
+
+    button{
+        cursor: pointer;
+    }
+
     :root{
         --Color-primary: #FF577F;
         --Color-primary-Focus: #FF427F;
