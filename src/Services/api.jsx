@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const KenziHubAPi = axios.create({
+export const kenzieHubApi = axios.create({
   baseURL: "https://kenziehub.herokuapp.com",
 });

@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`::after
 
     * {
-        font-family: 'Inter', sans-serif;
         padding:0;
         margin:0;
         vertical-align:baseline;
@@ -15,13 +14,22 @@ const GlobalStyles = createGlobalStyle`::after
         background-color: #121214;
         display: flex;
         justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: 'Inter', sans-serif;
     }
 
     button{
         cursor: pointer;
     }
 
+    textarea:focus, input:focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+    }
+
     :root{
+        --White: #fff;
         --Color-primary: #FF577F;
         --Color-primary-Focus: #FF427F;
         --Color-primary-Negative: #59323F;
