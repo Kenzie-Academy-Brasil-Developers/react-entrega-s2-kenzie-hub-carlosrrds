@@ -1,16 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
   width: 100vw;
-  max-width: 359px;
-  margin-top: 10vh;
-  @media (max-width: 1024px) {
-    margin-top: 5vh;
-  }
+  max-width: 369px;
 `;
 
 export const ContainerForm = styled.div`
@@ -20,7 +12,6 @@ export const ContainerForm = styled.div`
   background-color: var(--Grey-3);
   border-radius: 4px;
   width: 100%;
-  margin-top: 30px;
 
   h1 {
     color: var(--Grey-0);
@@ -41,9 +32,10 @@ export const ContainerForm = styled.div`
   p {
     color: var(--Negative);
     font-size: 12px;
+    max-width: 300px;
   }
 
-  span + button {
-    margin-bottom: 20px;
+  div + button {
+    margin-bottom: 30px;
   }
 `;

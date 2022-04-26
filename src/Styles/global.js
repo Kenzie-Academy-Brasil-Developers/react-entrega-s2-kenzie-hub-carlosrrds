@@ -14,8 +14,7 @@ const GlobalStyles = createGlobalStyle`::after
         background-color: #121214;
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
+        min-height: 100vh;
         font-family: 'Inter', sans-serif;
     }
 

@@ -9,7 +9,7 @@ import Button from "../../Components/Button";
 import Input from "../../Components/Input";
 import Logo from "../../Components/Logo";
 
-const Login = ({ setAuth }) => {
+const Login = ({}) => {
   const history = useHistory();
 
   const formSchema = yup.object().shape({
@@ -17,7 +17,11 @@ const Login = ({ setAuth }) => {
     password: yup.string().required("Campo obrigatório"),
   });
 
-  const { register, handleSubmit } = useForm({
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
     resolver: yupResolver(formSchema),
   });
 
@@ -35,9 +39,16 @@ const Login = ({ setAuth }) => {
 
     toast.success("Login efetuado com sucesso!");
 
-    setAuth(true);
-    history.push("/dashboard/");
+    history.push(`/home/${user.id}`);
   };
+
+  if (localStorage.getItem("@KenzieHub:token")) {
+    return (
+      <Redirect
+        to={`/home/${JSON.parse(localStorage.getItem("@KenzieHub:user")).id}`}
+      />
+    );
+  }
 
   return (
     <Container>
@@ -51,18 +62,28 @@ const Login = ({ setAuth }) => {
             label="Email"
             placeholder="Digite seu e-mail de acesso"
           />
+          <p>{errors.email?.message}</p>
           <Input
             register={register}
             name="password"
             label="Senha"
             placeholder="Digite sua senha de acesso"
+            type="password"
           />
-          <Button submitButton width="320px " type="submit">
+          <p>{errors.password?.message}</p>
+          <Button
+            disableButton={errors.email || errors.password}
+            submitButton
+            width="320px "
+            type="submit"
+          >
             Entrar
           </Button>
         </form>
         <span>Ainda não possui uma conta?</span>
-        <Button width="320px">Cadastrar-se</Button>
+        <Button width="320px" onClick={() => history.push("/register")}>
+          Cadastrar-se
+        </Button>
       </ContainerForm>
     </Container>
   );

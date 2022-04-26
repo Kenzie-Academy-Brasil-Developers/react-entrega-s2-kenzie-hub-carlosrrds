@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   text-align: left;
   color: var(--Grey-0);
-  margin-top: 20px;
+  margin-top: 26px;
 
   label {
     font-weight: 400;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
 `;
 
-export const InputContainer = styled.input`
+export const InputContainer = styled.select`
   width: 320px;
   height: 48px;
   background-color: var(--Grey-2);
